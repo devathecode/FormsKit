@@ -5,7 +5,7 @@ export class AppConstants {
     /**
      * Form Data
      */
-    
+
     public static readonly passwordPattern = '(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}';
     public static readonly namePattern = '(^([a-zA-Z]+\\s?)*$)';
     public static readonly messagePattern = '(^(?!\\s)[,`~/;\'<>!#$%+=:.?()"*&@\\w\\s{|}-]*$)';
