@@ -5,13 +5,13 @@ import { LayoutRoutingModule } from "./layout-routing.module";
 
 
 @NgModule({
-    declarations: [
-        ContentContainerComponent
-    ],
-    imports: [
-        CommonModule,
-        LayoutRoutingModule
-    ]
+  declarations: [
+    ContentContainerComponent
+  ],
+  imports: [
+    CommonModule,
+    LayoutRoutingModule
+  ]
 })
 export class LayoutModule {
 }

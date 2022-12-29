@@ -7,15 +7,15 @@ import { CoreModule } from "../../../core/core.module";
 
 
 @NgModule({
-    declarations: [
-        LoginComponent,
-        RegisterComponent
-    ],
-    imports: [
-        CommonModule,
-        UserRoutingModule,
-        CoreModule
-    ]
+  declarations: [
+    LoginComponent,
+    RegisterComponent
+  ],
+  imports: [
+    CommonModule,
+    UserRoutingModule,
+    CoreModule
+  ]
 })
 export class UserModule {
 }

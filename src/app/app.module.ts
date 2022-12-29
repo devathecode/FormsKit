@@ -13,26 +13,26 @@ import { LayoutModule } from "./layout/layout.module";
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from "@angular/material/form-field";
 
 @NgModule({
-    declarations: [
-        AppComponent
-    ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        CommonModule,
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    CommonModule,
 
-        // Self Module,
-        CoreModule,
-        SharedModule,
-        DataModule,
-        LayoutModule
-    ],
-    providers: [
-        {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
-    ],
-    bootstrap: [AppComponent]
+    // Self Module,
+    CoreModule,
+    SharedModule,
+    DataModule,
+    LayoutModule
+  ],
+  providers: [
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }
