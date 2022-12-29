@@ -1,0 +1,72 @@
+<div class="mt-6 p-7">
+    <section class="max-w-4xl mx-auto bg-gray-100 rounded-md shadow-xl">
+        <div class="grid grid-cols-12 gap-2 divide-y sm:divide-x divide-gray-300">
+            <div class="col-span-12 sm:col-span-4 flex flex-col my-0 sm:my-auto">
+                <img src="https://i.postimg.cc/vmG9LJtF/logo.png" class="text-center" alt="">
+                <span class="font-mono text-gray-400 text-center text-xs">
+                    Learning platform which gives you a different way to learn
+                </span>
+                <div class="text-center mt-12">
+                    <span class="text-gray-500 font-mono">
+                        Already have an account ?
+                    </span>
+                    <span class="text-sky-700 hover:underline cursor-pointer" [routerLink]="'/user/login'">Login</span></div>
+            </div>
+            <div class="col-span-12 sm:col-span-8 p-8">
+                <h1 class="text-center font-mono text-2xl font-bold">Register</h1>
+                <p class="font-mono text-sm text-center text-gray-400">Enter your email and password to get started</p>
+                <form (ngSubmit)="onSubmit()" [formGroup]="registrationForm" class="flex flex-col pt-6">
+                    <mat-form-field appearance="outline" class="mb-2 sm:pr-4 w-full">
+                        <mat-label class="input-text">Email</mat-label>
+                        <input class="input-text" formControlName="email" matInput type="text">
+                        <mat-error *ngFor="let validation of registrationValidationMessages.errorMessages.email"
+                                   class="text-sm">
+                            <ng-container
+                                    *ngIf="registrationForm.controls['email'].hasError(validation.type)"
+                                    class="error-message">
+                                {{validation.message}}
+                            </ng-container>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="mb-2 sm:pr-4 w-full relative">
+                        <div class="absolute top-2 right-0 cursor-pointer" (click)="handleViewPassword('password')">
+                            <mat-icon>{{viewPassword ? 'visibility' : 'visibility_off'}}</mat-icon>
+                        </div>
+                        <mat-label class="input-text">Password</mat-label>
+                        <input class="input-text" formControlName="password" matInput [type]="viewPassword ? 'text' : 'password'">
+                        <mat-error *ngFor="let validation of registrationValidationMessages.errorMessages.password"
+                                   class="text-sm">
+                            <ng-container
+                                    *ngIf="registrationForm.controls['password'].hasError(validation.type)"
+                                    class="error-message">
+                                {{validation.message}}
+                            </ng-container>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="mb-2 sm:pr-4 w-full relative">
+                        <div class="absolute top-2 right-0 cursor-pointer" (click)="handleViewPassword('confirmPassword')">
+                            <mat-icon>{{viewConfirmPassword ? 'visibility' : 'visibility_off'}}</mat-icon>
+                        </div>
+                        <mat-label class="input-text">Confirm Password</mat-label>
+                        <input class="input-text" formControlName="confirmPassword" matInput [type]="viewConfirmPassword ? 'text' : 'password'">
+                        <mat-error *ngFor="let validation of registrationValidationMessages.errorMessages.password"
+                                   class="text-sm">
+                            <ng-container
+                                    *ngIf="registrationForm.controls['confirmPassword'].hasError(validation.type)"
+                                    class="error-message">
+                                {{validation.message}}
+                            </ng-container>
+                        </mat-error>
+                    </mat-form-field>
+                    <div class="text-center">
+                        <button [disabled]="registrationForm.invalid"
+                                [ngClass]="registrationForm.invalid ? 'cursor-not-allowed bg-gray-500 opacity-50' : 'bg-sky-500 hover:bg-sky-700'"
+                                class="p-2 text-white rounded-md shadow w-32" type="submit">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>

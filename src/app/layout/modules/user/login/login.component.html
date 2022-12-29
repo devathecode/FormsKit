@@ -1,0 +1,59 @@
+<div class="mt-12 p-7">
+    <section class="max-w-4xl mx-auto bg-gray-100 rounded-md shadow-xl">
+        <div class="grid grid-cols-12 gap-2 divide-y sm:divide-x divide-gray-300">
+            <div class="col-span-12 sm:col-span-4 flex flex-col my-0 sm:my-auto">
+                <img alt="" class="text-center" src="https://i.postimg.cc/vmG9LJtF/logo.png">
+                <span class="font-mono text-gray-400 text-center text-xs">
+                    Learning platform which gives you a different way to learn
+                </span>
+                <div class="text-center mt-12">
+                    <span class="text-gray-500 font-mono">
+                        Don't have an account ?
+                    </span>
+                    <span [routerLink]="'/user/register'"
+                          class="text-sky-700 hover:underline cursor-pointer">Register</span></div>
+            </div>
+            <div class="col-span-12 sm:col-span-8 p-8">
+                <h1 class="text-center font-mono text-2xl font-bold">Login</h1>
+                <p class="font-mono text-sm text-center text-gray-400">Enter your email and password to login</p>
+                <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="flex flex-col pt-6">
+                    <mat-form-field appearance="outline" class="mb-2 sm:pr-4 w-full">
+                        <mat-label class="input-text">Email</mat-label>
+                        <input class="input-text" formControlName="email" matInput type="text">
+                        <mat-error *ngFor="let validation of loginValidationMessages.errorMessages.email"
+                                   class="text-sm">
+                            <ng-container
+                                    *ngIf="loginForm.controls['email'].hasError(validation.type)"
+                                    class="error-message">
+                                {{validation.message}}
+                            </ng-container>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="mb-2 sm:pr-4 w-full">
+                        <div (click)="handleViewPassword()" class="absolute top-2 right-0 cursor-pointer">
+                            <mat-icon>{{viewPassword ? 'visibility' : 'visibility_off'}}</mat-icon>
+                        </div>
+                        <mat-label class="input-text">Password</mat-label>
+                        <input [type]="viewPassword ? 'text' : 'password'" class="input-text" formControlName="password"
+                               matInput>
+                        <mat-error *ngFor="let validation of loginValidationMessages.errorMessages.password"
+                                   class="text-sm">
+                            <ng-container
+                                    *ngIf="loginForm.controls['password'].hasError(validation.type)"
+                                    class="error-message">
+                                {{validation.message}}
+                            </ng-container>
+                        </mat-error>
+                    </mat-form-field>
+                    <div class="text-center mt-4">
+                        <button [disabled]="loginForm.invalid"
+                                [ngClass]="loginForm.invalid ? 'cursor-not-allowed bg-gray-500 opacity-50' : 'bg-sky-500 hover:bg-sky-700'"
+                                class="p-2 text-white rounded-md shadow w-32" type="submit">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
