@@ -23,8 +23,8 @@ export class LoginComponent implements OnInit {
                 Validators.required,
             ])],
             password: ['', Validators.compose([
-                Validators.required,
-                Validators.pattern(AppConstants.passwordPattern)
+                Validators.pattern(AppConstants.passwordPattern),
+                Validators.required
             ])]
         })
     }

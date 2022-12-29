@@ -25,10 +25,12 @@ export class RegisterComponent implements OnInit {
                 Validators.required,
             ])],
             password: ['', Validators.compose([
-                Validators.required,
+                Validators.pattern(AppConstants.passwordPattern),
+                Validators.required
             ])],
             confirmPassword: ['', Validators.compose([
-                Validators.required,
+                Validators.pattern(AppConstants.passwordPattern),
+                Validators.required
             ])],
         }, {
             validators: [
